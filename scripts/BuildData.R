@@ -4,15 +4,6 @@
 
 library(dplyr)
 
-setwd("C:/Users/Evan/Documents/info201-final-project/data")
-
-data <- read.csv("team-picking-categories.csv")
-
-#Get rid of St. Louis and New York proximity scores
-#nfl.data <- data %>% 
-#  select(-(SLP: NYP)) %>% 
-#  mutate(total.score = 0)
-
 #Calculates the score of each team based on the weighting of each category
 #Returns the data frame with the teams sorted by their score (highest = first)
 CalculateScores <- function(data, cat.weights) {
@@ -31,6 +22,3 @@ TeamScore <- function(data, team, cat.weigths) {
   }
   return(score)
 }
-
-multiply <- c(1.5, 1.5, 1, 2, .5, 0, 0, .5, 1, 1, 1, 1.5, 2, 1)
-practice <- CalculateScores(nfl.data, multiply)
