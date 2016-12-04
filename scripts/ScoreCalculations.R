@@ -4,21 +4,24 @@
 
 library(dplyr)
 
-#Calculates the score of each team based on the weighting of each category
-#Returns the data frame with the teams sorted by their score (highest = first)
+#Returns the data frame with the categories multiplied by their weights and
+#the teams sorted by their total.score highest to lowest
 CalculateScores <- function(data, cat.weights) {
   for(i in 1:32) {
-    data[i, "total.score"] <- TeamScore(data, i, cat.weigths)
+    data <- TeamScore(data, i, cat.weights)
   }
   data <- arrange(data, -total.score)
   return(data)
 }
 
-#Calculates and returns the score of a specific team based on the weighting of each category
-TeamScore <- function(data, team, cat.weigths) {
+#Returns the data frame with the selected team's categories multiplied by their weights
+#and total.score calculated
+TeamScore <- function(data, team, cat.weights) {
   score <- 0
   for(i in 1:14) {
-    score <- score + (data[team, i+1] * cat.weights[i])
+    data[team, i+1] <- data[team, i+1] * cat.weights[i]
+    score <- score + data[team, i+1]
   }
-  return(score)
+  data[team, "total.score"] <- score
+  return(data)
 }
