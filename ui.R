@@ -1,6 +1,6 @@
 library(shiny)
 
-shinyUI(fluidPage('Picking A New NFL Team',
+shinyUI(navbarPage('Picking A New NFL Team',
         tabPanel('Questions',
                  titlePanel('Questionnaire'),
                  mainPanel(
@@ -36,7 +36,7 @@ shinyUI(fluidPage('Picking A New NFL Team',
                                 choices = list("Not At All" = 0, "A Little Important" = 0.25, "Somewhat Important" = 0.5, "Very Important" = 0.75, "Most Important" = 1)),
                    radioButtons("radio16", label = ("How important to you is behavior (suspensions by players on a team since 2007, especially considering transgression against women)?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.25, "Somewhat Important" = 0.5, "Very Important" = 0.75, "Most Important" = 1)),
-                   textOutput('results'),
+                   renderText('results'),
                  )
         ),
         tabPanel('Visualizations',
