@@ -33,8 +33,6 @@ shinyUI(fluidPage('Info 201 Final Project',
                                 choices = list("Not At All" = 0, "A Little Important" = 0.25, "Somewhat Important" = 0.5, "Very Important" = 0.75, "Most Important" = 1)),
                    radioButtons("radio13", label = ("How important to you is ownership (loyality to core players and the community"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.25, "Somewhat Important" = 0.5, "Very Important" = 0.75, "Most Important" = 1)),
-<<<<<<< 9f06972fa302f816909e02a494f57d031833f821
-<<<<<<< da6ddd49870a23401494c042b5c48be75c65c7c8
                    radioButtons("radio14", label = ("How important to you is behavior (suspensions by players on a team since 2007, especially considering transgression against women)?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.25, "Somewhat Important" = 0.5, "Very Important" = 0.75, "Most Important" = 1))
                  ),
@@ -43,17 +41,6 @@ shinyUI(fluidPage('Info 201 Final Project',
                    renderText('results'),
                    
                    # Renders data visualization related to users preferences
-=======
-                   renderText('results')
-=======
-                   renderText('results'),
->>>>>>> modified ui.R
-                 )
-        ),
-        tabPanel('Visualizations',
-                 titlePanel('Visualizations'),
-                 mainPanel(
->>>>>>> modified
                    plotlyOutput('chart')
                  )
         )
