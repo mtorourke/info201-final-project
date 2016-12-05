@@ -7,7 +7,7 @@ library(dplyr)
 #Returns the data frame with the categories multiplied by their weights and
 #the teams sorted by their total.score highest to lowest
 CalculateScores <- function(data, cat.weights) {
-  for(i in 1:32) {
+  for(i in 1:nrow(data)) {
     data <- TeamScore(data, i, cat.weights)
   }
   data <- arrange(data, -total.score)
@@ -19,7 +19,7 @@ CalculateScores <- function(data, cat.weights) {
 TeamScore <- function(data, team, cat.weights) {
   score <- 0
   for(i in 1:14) {
-    data[team, i+1] <- data[team, i+1] * cat.weights[i]
+    data[team, i+1] <- data[team, i+1] * cat.weights[[i]]
     score <- score + data[team, i+1]
   }
   data[team, "total.score"] <- score

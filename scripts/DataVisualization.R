@@ -1,6 +1,5 @@
 # Data Visualization - Emilee Helm
-setwd('~/Desktop/info201-final-project/data')
-data <- read.csv('team-picking-categories.csv', stringsAsFactors = FALSE)
+
 
 # Load in packages
 library(plotly)
@@ -10,7 +9,6 @@ library(dplyr)
 Team <- data$TEAM 
 
 VisualizeData <- function(x) {
-  
   p <- plot_ly(x, x = ~Team, y = ~BMK, type = 'bar', name = 'Big Market') %>%
     add_trace(y = ~UNI, name = 'Uniform') %>%
     add_trace(y = ~CCH, name = 'Coaching') %>%
