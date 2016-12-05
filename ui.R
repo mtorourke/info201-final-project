@@ -1,9 +1,12 @@
+# Library necessary packages and tools
 library(shiny)
 
 shinyUI(navbarPage('Picking A New NFL Team',
+        # Creates a tab panel to ask user questions about how important certain features are 
         tabPanel('Questions',
                  titlePanel('Questionnaire'),
                  mainPanel(
+                  # Creates radio buttons to collect users input
                    radioButtons("radio1", label = ("How important to you is a big market (size of market in terms of population where bigger is better)?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.25, "Somewhat Important" = 0.5, "Very Important" = 0.75,"Most Important" = 1)),
                    radioButtons("radio2", label = ("How important to you is stylishness of uniforms?"),
@@ -32,12 +35,17 @@ shinyUI(navbarPage('Picking A New NFL Team',
                                 choices = list("Not At All" = 0, "A Little Important" = 0.25, "Somewhat Important" = 0.5, "Very Important" = 0.75, "Most Important" = 1)),
                    radioButtons("radio14", label = ("How important to you is behavior (suspensions by players on a team since 2007, especially considering transgression against women)?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.25, "Somewhat Important" = 0.5, "Very Important" = 0.75, "Most Important" = 1)),
+                  
+                   # Renders text to show user which team they should cheer for based on their preferences
                    renderText('results')
                  )
         ),
+        
+        # Creates a tab panel to show data visualizations
         tabPanel('Visualizations',
                  titlePanel('Visualizations'),
                  mainPanel(
+                   # Renders data visualization related to users preferences
                    plotlyOutput('viz')
                  )
           
