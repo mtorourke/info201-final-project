@@ -51,7 +51,7 @@ shinyUI(fluidPage('Info 201 Final Project',
                    selectInput("category", label = h3("Select a Category"), 
                                choices = list("Big Market" = 'BMK', "Uniform" = 'UNI', "Coaching" = 'CCH', 'Stadium Experience' = 'STX',
                                               'Small Market' = 'SMK', 'Affordability' = 'AFF', 'Fan Relations' = 'FRL', 'Bang For Your Buck' = 'BNG',
-                                              'Tradition' = 'TRD', 'Bandwagon Factor' = 'BWG', 'Future Wins' = 'FUT', 'Players', 'PLA', 'Ownership' = 'OWN',
+                                              'Tradition' = 'TRD', 'Bandwagon Factor' = 'BWG', 'Future Wins' = 'FUT', 'Players' = 'PLA', 'Ownership' = 'OWN',
                                               'Behavior' = 'BEH')),
                    plotlyOutput('category.chart')
                  )
