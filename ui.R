@@ -27,7 +27,7 @@ shinyUI(fluidPage('Info 201 Final Project',
                                 choices = list("Not At All" = 0, "A Little Important" = 0.5, "Somewhat Important" = 1, "Very Important" = 1.5, "Most Important" = 2)),
                    radioButtons("radio10", label = ("How important to you is the bandwagon factor?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.5, "Somewhat Important" = 1, "Very Important" = 1.5, "Most Important" = 2)),
-                   radioButtons("radio11", label = ("How important to you is tradition (championships/division titles/wins in team's entire history)?"),
+                   radioButtons("radio11", label = ("How important to you are future wins (predicted over the next five years)?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.5, "Somewhat Important" = 1, "Very Important" = 1.5, "Most Important" = 2)),
                    radioButtons("radio12", label = ("How important to you are players in terms of effort on the field and likability off it?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.5, "Somewhat Important" = 1, "Very Important" = 1.5, "Most Important" = 2)),
@@ -41,7 +41,19 @@ shinyUI(fluidPage('Info 201 Final Project',
                    renderText('results'),
                    
                    # Renders data visualization related to users preferences
-                   plotlyOutput('chart')
+                   plotlyOutput('chart'),
+                   
+                   # Selects a team to be displayed
+                   textInput("text", label = h3("Enter a Team"), value = " "),
+                   plotlyOutput('team.chart'),
+                   
+                   # Selects a category to be displayed
+                   selectInput("category", label = h3("Select a Category"), 
+                               choices = list("Big Market" = 'BMK', "Uniform" = 'UNI', "Coaching" = 'CCH', 'Stadium Experience' = 'STX',
+                                              'Small Market' = 'SMK', 'Affordability' = 'AFF', 'Fan Relations' = 'FRL', 'Bang For Your Buck' = 'BNG',
+                                              'Tradition' = 'TRD', 'Bandwagon Factor' = 'BWG', 'Future Wins' = 'FUT', 'Players', 'PLA', 'Ownership' = 'OWN',
+                                              'Behavior' = 'BEH')),
+                   plotlyOutput('category.chart')
                  )
         )
         
