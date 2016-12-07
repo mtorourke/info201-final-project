@@ -5,7 +5,7 @@ library(dplyr)
 library(plotly)
 
 #sets working directory, reads in data
-setwd("/Users/Mitch/info201-final-project/")
+setwd("~/info201-final-project/")
 source("./scripts/Visualize.R")
 source("./scripts/ScoreCalculations.R")
 source("./scripts/TeamVisualization.R")
