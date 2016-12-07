@@ -42,7 +42,7 @@ shinyServer(function(input, output) {
   })
   
   output$results <- renderText({
-    return (paste0("Your New NFL Team is... The ", dataInput()[1, TEAM]))
+    return (paste0("Your New NFL Team is... The ", dataInput()[1, 1]))
   })
   
 })

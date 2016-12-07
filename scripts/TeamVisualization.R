@@ -4,12 +4,8 @@ library(stringr)
 
 # Creates function to search for a team
 TeamChart <- function(data,  search = '') {
-  data <- data[search,]
-    
-  data <- as.data.frame(t(data))
+  x <- colnames(data[,2:15])
+  y <- as.numeric(data[data$TEAM == search, 2:15])
   
-  column <- paste0("data$", search)
-  y <- eval(parse(text = column))
-  
-  plot_ly(data = data, x = ~Team, y= y)
+  return (plot_ly(data = data, x = x, y = y))
 }

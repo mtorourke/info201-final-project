@@ -13,11 +13,12 @@ Visualize <- function(data, y, title) {
     x = data$TEAM,
     y = eval(parse(text = column)),
     name = title,
-    type = "bar" %>%
-    layout(xaxis = list(title = 'Team'),
+    type = "bar") %>%
+    layout(title = title,
+      xaxis = list(title = 'Team'),
       yaxis = list(title = 'Score'))
     
-  )
+  
   return(p)
 }
 
