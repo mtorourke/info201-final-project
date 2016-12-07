@@ -5,9 +5,10 @@ library(dplyr)
 library(plotly)
 
 #sets working directory, reads in data
-setwd("/Users/Mitch/Downloads/School/INFO201/info201-final-project/")
+setwd("/Users/Mitch/info201-final-project/")
 source("./scripts/Visualize.R")
 source("./scripts/ScoreCalculations.R")
+source("./scripts/TeamVisualization.R")
 data <- read.csv('./data/team-picking-categories.csv', stringsAsFactors = FALSE)
 data <- select(data, -(SLP:NYP)) #factors out the St. Louis/New York proximity because it's arbitrary
 data <- mutate(data, total.score = 0)
@@ -33,7 +34,7 @@ shinyServer(function(input, output) {
   })
   
   output$team.chart <- renderPlotly({
-    
+    return (TeamChart(dataInput(), input$text))
   })
   
   output$category.chart <- renderPlotly({

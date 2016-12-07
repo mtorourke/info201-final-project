@@ -4,8 +4,8 @@ library(stringr)
 
 # Creates function to search for a team
 TeamChart <- function(data,  search = '') {
-  data <- data %>% 
-    filter(grepl(search, team))
+  data <- data[search,]
+    
   data <- as.data.frame(t(data))
   
   column <- paste0("data$", search)
