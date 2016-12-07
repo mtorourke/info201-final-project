@@ -3,7 +3,6 @@
 # INFO 201
 
 library(plotly)
-library(dplyr)
 
 # Function that takes in general data and visualizes selected team statistics
 Visualize <- function(data, y, title) {
@@ -13,10 +12,7 @@ Visualize <- function(data, y, title) {
     x = data$TEAM,
     y = eval(parse(text = column)),
     name = title,
-    type = "bar" %>%
-    layout(xaxis = list(title = 'Team'),
-      yaxis = list(title = 'Score'))
-    
+    type = "bar"
   )
   return(p)
 }
