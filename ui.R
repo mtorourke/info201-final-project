@@ -38,7 +38,7 @@ shinyUI(fluidPage('Info 201 Final Project',
                  ),
                  mainPanel(
                    # Renders text to show user which team they should cheer for based on their preferences
-                   renderText('results'),
+                   textOutput('results'),
                    
                    # Renders data visualization related to users preferences
                    plotlyOutput('chart'),
