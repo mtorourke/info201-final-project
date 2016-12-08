@@ -2,6 +2,7 @@
 library(shiny)
 
 shinyUI(navbarPage('Info 201 Final Project',
+        # Create tabPanel for a project introduction
         tabPanel('Intro',
                  titlePanel('Project Introduction'),
                  mainPanel(
@@ -19,6 +20,7 @@ shinyUI(navbarPage('Info 201 Final Project',
                    tags$div(
                      tags$br() 
                    ),
+                   
                    "Our main audience will be NFL fans, new or old, who are looking to find what teams they should support.
                    Our project should be able to apply to the diverse fan groups of the NFL. For instance fans who value teams who
                    rank higher in financially focused categories such as “Big Market” and fans who rank morally focused categories
@@ -110,6 +112,12 @@ shinyUI(navbarPage('Info 201 Final Project',
                    
                    # Renders data visualization related to users preferences
                    plotlyOutput('chart'),
+                   tags$div(  
+                     tags$br()
+                   ),
+                   tags$div(  
+                     tags$br()
+                   ),
                    
                    # Selects a team to be displayed
                    selectInput("team", label = h3("Select a Team"), 
@@ -133,7 +141,13 @@ shinyUI(navbarPage('Info 201 Final Project',
                                               'Behavior' = 'BEH')),
                    
                    # Renders a data visualization of the selected category
-                   plotlyOutput('category.chart')
+                   plotlyOutput('category.chart'),
+                   tags$div(  
+                     tags$br()
+                   ),
+                   tags$div(  
+                     tags$br()
+                   )
                  )
         )
         
