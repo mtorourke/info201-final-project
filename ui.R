@@ -21,10 +21,11 @@ shinyUI(navbarPage('Info 201 Final Project',
                      tags$br() 
                    ),
                    
-                   "Our main audience will be NFL fans, new or old, who are looking to find what teams they should support.
-                   Our project should be able to apply to the diverse fan groups of the NFL. For instance fans who value teams who
-                   rank higher in financially focused categories such as “Big Market” and fans who rank morally focused categories
-                   such as “Fan Relations” higher should both be able to use our app to discover possible teams for their fandom."
+                   "Our project idea came from Blyth Terrell", a("article", target="_blank", href="http://fivethirtyeight.com/features/the-rams-are-dead-to-me-so-i-answered-3352-questions-to-find-a-new-team/"),
+                   "on FiveThirtyEight describing her path to
+                   to deciding which NFL franchise she would be a fan of due to the Rams, her current team,
+                   leaving St. Louis. We used the data set they created that scores the teams in each category
+                   which is available on FiveThirtyEight\'s", a("github", target = "_blank", href="https://github.com/fivethirtyeight/data/tree/master/nfl-favorite-team"), "."
                  )
                  ),
         # Creates a tab panel to ask user questions about how important certain features are 
