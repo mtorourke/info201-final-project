@@ -36,19 +36,22 @@ shinyServer(function(input, output) {
     return (response.calculated)
   })
   
-  
+  #function that renders a chart comparing the total score of each team
   output$chart <- renderPlotly({
     return(Visualize(dataInput(), "total.score", "Total Score"))
   })
   
+  #function that renders a chart that shows that shows the weighted stats of a team of the users choice
   output$team.chart <- renderPlotly({
     return (TeamChart(dataInput(), input$team, cat.list))
   })
   
+  #renders a chart that compares the score of each in a category of the users choice
   output$category.chart <- renderPlotly({
     return (Visualize(dataInput(), input$category, cat.list[[input$category]]))
   })
   
+  #renders the new team that user 'should' follow based of their chosen critieria 
   output$results <- renderText({
     return (dataInput()[1, 1])
   })
