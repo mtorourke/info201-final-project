@@ -5,7 +5,7 @@ shinyUI(navbarPage('Info 201 Final Project',
         tabPanel('Intro',
                  titlePanel('Project Introduction'),
                  mainPanel(
-                   tag$h3("Welcome to our project!"),
+                   tags$h3("Welcome to our project!"),
                    
                    tags$div(  
                      tags$br()
