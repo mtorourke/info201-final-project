@@ -2,6 +2,29 @@
 library(shiny)
 
 shinyUI(navbarPage('Info 201 Final Project',
+        tabPanel('Intro',
+                 titlePanel('Project Introduction'),
+                 mainPanel(
+                   tag$h3("Welcome to our project!"),
+                   
+                   tags$div(  
+                     tags$br()
+                   ),
+                   
+                   "The purpose of our app is to help NFL fans pick which team they should root for based on
+                   how important certain aspects of a team are to them. We collect this information from users
+                   through a questionnaire and assign weights to each category based on their response. Once a user
+                   has completed the questionnaire, they will be able to see which team they should root for as well
+                   as different data visualizations relating to their answers.",
+                   tags$div(
+                     tags$br() 
+                   ),
+                   "Our main audience will be NFL fans, new or old, who are looking to find what teams they should support.
+                   Our project should be able to apply to the diverse fan groups of the NFL. For instance fans who value teams who
+                   rank higher in financially focused categories such as “Big Market” and fans who rank morally focused categories
+                   such as “Fan Relations” higher should both be able to use our app to discover possible teams for their fandom."
+                 )
+                 ),
         # Creates a tab panel to ask user questions about how important certain features are 
         tabPanel('Questions',
                  titlePanel('Picking A New NFL Team'),
