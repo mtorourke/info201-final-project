@@ -2,10 +2,13 @@
 # Emilee Helm
 # INFO 201
 
+# library packages 
 library(plotly)
 library(dplyr)
 
-# Function that takes in general data and visualizes selected team statistics
+# Function that takes in general data and visualizes selected team statistics, 
+# we used this to display the total scores by team, placed into a function
+# to increase its usability 
 Visualize <- function(data, y, title) {
   column <- paste0('data$', y)
 
