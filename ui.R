@@ -1,11 +1,11 @@
 # Library necessary packages and tools
 library(shiny)
 
-shinyUI(fluidPage('Info 201 Final Project',
+shinyUI(navbarPage('Info 201 Final Project',
         # Creates a tab panel to ask user questions about how important certain features are 
         tabPanel('Questions',
                  titlePanel('Picking A New NFL Team'),
-                 sidebarPanel(
+                 mainPanel(
                    # Creates radio buttons to collect users input
                    radioButtons("radio1", label = ("How important to you is a big market (size of market in terms of population where bigger is better)?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.5, "Somewhat Important" = 1, "Very Important" = 1.5,"Most Important" = 2),
@@ -62,38 +62,20 @@ shinyUI(fluidPage('Info 201 Final Project',
                    radioButtons("radio14", label = ("How important to you is behavior (suspensions by players on a team since 2007, especially considering transgression against women)?"),
                                 choices = list("Not At All" = 0, "A Little Important" = 0.5, "Somewhat Important" = 1, "Very Important" = 1.5, "Most Important" = 2),
                                 selected = 1)
-                 ),
+                 )
+        ),
+        # Creates a tab panel for results and visualizations
+        tabPanel('Visualizations',
+        titlePanel('Results and Visualizations'),
                  mainPanel(
-                 	"Your New NFL Team is... The",
-                 	
                    # Renders text to show user which team they should cheer for based on their preferences
-                   tags$h3(
-                   
-                   		tags$b(
-                   		
-                   			textOutput('results')
-                   )),
-                   
-                   tags$div(
-                   
-                   		tags$br()
-                   		
-                   ),
+                   textOutput('results'),
                    
                    # Renders data visualization related to users preferences
                    plotlyOutput('chart'),
                    
                    # Selects a team to be displayed
-                   selectInput("team", label = h3("Select a Team"), 
-                               choices = list("Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills", "Carolina Panthers",
-                                              "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns", "Dallas Cowboys", "Denver Broncos",
-                                              "Detroit Lions", "Green Bay Packers", "Houston Texans", "Indianapolis Colts", 
-                                              "Jacksonville Jaguars", "Kansas City Chiefs", "Los Angeles Rams", "Miami Dolphins", 
-                                              "Minnesota Vikings", "New England Patriots", "New Orleans Saints", "New York Giants", 
-                                              "New York Jets", "Oakland Raiders", "Philadelphia Eagles", "Pittsburgh Steelers",
-                                              "San Diego Chargers", "San Francisco 49ers", "Seattle Seahawks", "Tampa Bay Buccaneers", 
-                                              "Tennessee Titans", "Washington Redskins")),
-                   #renders data visualization of the selected team                          
+                   textInput("text", label = h3("Enter a Team"), value = " "),
                    plotlyOutput('team.chart'),
                    
                    # Selects a category to be displayed
