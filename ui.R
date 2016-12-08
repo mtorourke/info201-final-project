@@ -1,8 +1,8 @@
 # Library necessary packages and tools
 library(shiny)
+library(plotly)
 
 shinyUI(navbarPage('Info 201 Final Project',
-        # Create tabPanel for a project introduction
         tabPanel('Intro',
                  titlePanel('Project Introduction'),
                  mainPanel(
@@ -20,12 +20,10 @@ shinyUI(navbarPage('Info 201 Final Project',
                    tags$div(
                      tags$br() 
                    ),
-                   
-                   "Our project idea came from Blyth Terrell", a("article", target="_blank", href="http://fivethirtyeight.com/features/the-rams-are-dead-to-me-so-i-answered-3352-questions-to-find-a-new-team/"),
-                   "on FiveThirtyEight describing her path to
-                   to deciding which NFL franchise she would be a fan of due to the Rams, her current team,
-                   leaving St. Louis. We used the data set they created that scores the teams in each category
-                   which is available on FiveThirtyEight\'s", a("github", target = "_blank", href="https://github.com/fivethirtyeight/data/tree/master/nfl-favorite-team"), "."
+                   "Our main audience will be NFL fans, new or old, who are looking to find what teams they should support.
+                   Our project should be able to apply to the diverse fan groups of the NFL. For instance fans who value teams who
+                   rank higher in financially focused categories such as “Big Market” and fans who rank morally focused categories
+                   such as “Fan Relations” higher should both be able to use our app to discover possible teams for their fandom."
                  )
                  ),
         # Creates a tab panel to ask user questions about how important certain features are 
@@ -113,12 +111,6 @@ shinyUI(navbarPage('Info 201 Final Project',
                    
                    # Renders data visualization related to users preferences
                    plotlyOutput('chart'),
-                   tags$div(  
-                     tags$br()
-                   ),
-                   tags$div(  
-                     tags$br()
-                   ),
                    
                    # Selects a team to be displayed
                    selectInput("team", label = h3("Select a Team"), 
@@ -142,13 +134,7 @@ shinyUI(navbarPage('Info 201 Final Project',
                                               'Behavior' = 'BEH')),
                    
                    # Renders a data visualization of the selected category
-                   plotlyOutput('category.chart'),
-                   tags$div(  
-                     tags$br()
-                   ),
-                   tags$div(  
-                     tags$br()
-                   )
+                   plotlyOutput('category.chart')
                  )
         )
         
