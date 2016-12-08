@@ -6,7 +6,7 @@ library(stringr)
 TeamChart <- function(data,  search = '', category.names) {
   x <- unlist(category.names)
   y <- as.numeric(data[data$TEAM == search, 2:15])
-  p <- plot_ly(data = data, x = x, y = y, type = "bar", color = 'REDS') %>% 
+  p <- plot_ly(data = data, x = x, y = y, type = "bar") %>% 
     layout(title = search, 
            xaxis = list(title = "Categories"), 
            yaxis = list(title = "Score"),
