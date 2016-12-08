@@ -69,13 +69,37 @@ shinyUI(navbarPage('Info 201 Final Project',
         titlePanel('Results and Visualizations'),
                  mainPanel(
                    # Renders text to show user which team they should cheer for based on their preferences
-                   textOutput('results'),
+                   "Your New NFL Team is... The",
+                   
+                   # Renders text to show user which team they should cheer for based on their preferences
+                   tags$h3(
+                     
+                     tags$b(
+                       
+                       textOutput('results')
+                     )),
+                   
+                   tags$div(
+                     
+                     tags$br()
+                     
+                   ),
                    
                    # Renders data visualization related to users preferences
                    plotlyOutput('chart'),
                    
                    # Selects a team to be displayed
-                   textInput("text", label = h3("Enter a Team"), value = " "),
+                   selectInput("team", label = h3("Select a Team"), 
+                               choices = list("Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills", "Carolina Panthers",
+                                              "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns", "Dallas Cowboys", "Denver Broncos",
+                                              "Detroit Lions", "Green Bay Packers", "Houston Texans", "Indianapolis Colts", 
+                                              "Jacksonville Jaguars", "Kansas City Chiefs", "Los Angeles Rams", "Miami Dolphins", 
+                                              "Minnesota Vikings", "New England Patriots", "New Orleans Saints", "New York Giants", 
+                                              "New York Jets", "Oakland Raiders", "Philadelphia Eagles", "Pittsburgh Steelers",
+                                              "San Diego Chargers", "San Francisco 49ers", "Seattle Seahawks", "Tampa Bay Buccaneers", 
+                                              "Tennessee Titans", "Washington Redskins")),
+                   
+                   # Renders data visualization of the selected team                          
                    plotlyOutput('team.chart'),
                    
                    # Selects a category to be displayed
@@ -84,6 +108,8 @@ shinyUI(navbarPage('Info 201 Final Project',
                                               'Small Market' = 'SMK', 'Affordability' = 'AFF', 'Fan Relations' = 'FRL', 'Bang For Your Buck' = 'BNG',
                                               'Tradition' = 'TRD', 'Bandwagon Factor' = 'BWG', 'Future Wins' = 'FUT', 'Players' = 'PLA', 'Ownership' = 'OWN',
                                               'Behavior' = 'BEH')),
+                   
+                   # Renders a data visualization of the selected category
                    plotlyOutput('category.chart')
                  )
         )
