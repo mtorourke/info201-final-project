@@ -16,7 +16,8 @@ Visualize <- function(data, y, title) {
     type = "bar") %>%
     layout(title = title,
       xaxis = list(title = 'Team'),
-      yaxis = list(title = 'Score'))
+      yaxis = list(title = 'Score'),
+      margin = list(b = 160))
     
   
   return(p)
