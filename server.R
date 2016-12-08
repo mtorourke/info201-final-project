@@ -42,7 +42,7 @@ shinyServer(function(input, output) {
   })
   
   output$team.chart <- renderPlotly({
-    return (TeamChart(dataInput(), input$team))
+    return (TeamChart(dataInput(), input$team, cat.list))
   })
   
   output$category.chart <- renderPlotly({
